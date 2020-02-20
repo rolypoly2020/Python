@@ -1,10 +1,20 @@
 #wenbenjindutiao.py
 import time
-print("=========start=========")
-for i in range(11):
+scale=50
+start=time.perf_counter()
+print('start'.center(scale,'='))
+#print("=========start=========")
+for i in range(scale+1):
     a=i*'*'
-    b=(10-i)*'.'
-    c=i*10
-    print('{:^3.0f}%[{}->{}]'.format(c,a,b))
+    b=(scale-i)*'.'
+    c=100*(i/scale)
+    dur=time.perf_counter()-start
+    print('\r{:^3.0f}%[{}->{}]{}'.format(c,a,b,dur),end='')
     time.sleep(0.2)
-print("=========over=========")
+#print("=========over=========")
+print('over'.center(scale,'='))
+#q2.py
+import time
+for i in range(101):
+    print('\r{:3}%'.format(i),end="")
+    time.sleep(0.1)
